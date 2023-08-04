@@ -6,12 +6,10 @@ export const shortenUrl = async longUrl => {
 
     try {
         const response = await axios.post(url, { longUrl }, { headers })
-        console.log(response.data)
 
-        //await axios.get(response.data.url)
         return response.data.shortUrl
     }
-    catch (error) {
-        console.error('susika', error)
+    catch (err) {
+        console.error(err)
     }
 }

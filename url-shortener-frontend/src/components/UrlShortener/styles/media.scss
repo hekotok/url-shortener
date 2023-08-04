@@ -1,0 +1,14 @@
+@media (max-width: 500px) {
+    .input-container {
+        flex-direction: column;
+
+        input {
+            border-radius: 0.8rem;
+        }
+
+        button {
+            padding: 1rem;
+            border-radius: 0.8rem;
+        }
+    }
+}
