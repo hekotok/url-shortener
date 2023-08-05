@@ -3,26 +3,25 @@ import React, { useState } from 'react'
 import { shortenUrl } from 'utils/shortenUrl'
 
 import './styles/main.scss'
-import './styles/media.scss'
 
 const UrlShortener = () => {
     const [ url, setUrl ] = useState('')
 
     const getShortUrl = () => shortenUrl(url)
         .then(resUrl => {
-            let currentLength = 0
-            const maxLength = resUrl.length
+            let currentLength = -1
+            const maxLength = resUrl.length - 1
+
             setUrl('')
 
-            let intervalId = setInterval(() => {
+            const intervalId = setInterval(() => {
                 if (currentLength >= maxLength)
                     clearInterval(intervalId)
-
                 else {
                     setUrl(tempUrl => `${tempUrl}${resUrl[currentLength]}`)
                     currentLength++
                 }
-            }, 500)
+            }, 12)
         }).catch(() => setUrl(''))
 
     return (
@@ -46,6 +45,3 @@ const UrlShortener = () => {
 }
 
 export default UrlShortener
-/*
-
-  }*/
