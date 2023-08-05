@@ -30,7 +30,7 @@ const UrlShortener = () => {
                 <input
                     type="url"
                     value={url}
-                    onKeyDown={event => event.key === 'Enter' && getShortUrl()}
+                    onKeyDown={({ key }) => key === 'Enter' && getShortUrl()}
                     onChange={({ target }) => setUrl(target.value)}
                     placeholder="Enter your long url"
                 />
